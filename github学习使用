@@ -75,3 +75,8 @@ git clone ..git
   方法三：
   直接修改.git/config文件
 
+git push时出现 failed to push some refs 的解决方案
+  出现错误的主要原因是github中的README.md文件不在本地代码目录中
+  git pull --rebase origin master // 获得README.md
+  $ git push -u origin master
+
