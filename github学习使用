@@ -1,0 +1,4 @@
+github代码保存
+.gitignore  // 忽略.pyc文件
+.py运行的时候产生了.pyc
+
