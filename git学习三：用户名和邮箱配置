@@ -12,3 +12,13 @@ git config user.email email
 
 在.git中的config中里面有也可以这样
 
+vi .gitconfig 加入在~目录下，主目录下，也就是全局值
+  [user]
+    email = 用户邮箱  // email = smartli@16.com
+    name = 用户名 // smart
+    
+生成密匙：
+ssh-keygen -t rsa -C "邮箱地址" 会放在~/.ssh/id_rsa下
+就会有id_rsa 和 id_rsa_pub 私钥和公钥
+
+注：只能用账号必须要用登录github的邮箱才行，其他一概不行用户名也要用github用户名才行
