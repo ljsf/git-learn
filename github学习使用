@@ -2,3 +2,24 @@ github代码保存
 .gitignore  // 忽略.pyc文件
 .py运行的时候产生了.pyc
 
+创建完成仓库以后，
+添加ssh账号，只有添加完了以后，才能实现和github交互
+
+找到setting---ssh keys 加入电脑的密匙
+需要在电脑那里配置ssh
+
+
+vi .gitconfig
+  [user]
+    email = 用户邮箱  // email = smartli@16.com
+    name = 用户名 // smart
+    
+   Author 就是这里设置的
+  
+  ssk-keygen -t rea -C 'smartli@163.com'
+  next next
+  里面会有 id_rsa 就是私钥，自己保存 
+  id_rsa.pub 公钥，复制到key 可以起个名字
+  
+  
+    
