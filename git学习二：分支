@@ -8,3 +8,58 @@
     dev工作完成了，可以把dev合并到master上，合并完了，可以删除分支
     
     git branch：可以查看分支
+    
+    git checkout -b dev   // 创建dev分支并切换HEAD指向dev中
+    git branch name // 创建分支
+    git checkout name // 切换分支
+    git checkout master // 切换分支到master HEAD指向master
+    git merge dev // 把dev合并到master 快速合并 ，就是直接把指针转向master 直接移动指针 要推倒master分支
+    git branch -d dev // 删除分支dev
+    
+    =======================合并分支，=========================
+    
+    当不同分支，有内容冲突的时候，
+    
+    git merge dev // 这个时候会失败
+    vi code.txt // 文件会出现哪里会冲突
+      <<<<<<< HEAD    // master
+      git master
+      =======
+      dev branch two // dev
+      >>>>>>> dev   //
+      把多余的删除然后
+      git add ...
+      git commit - ...
+      
+      
+      可以通过 git log --graph --pretty=oneline // 查看分支的图
+      
+    
+    Administrator@lijun1 MINGW64 /g/code/git (dev)
+    $ git log --pretty=oneline    // 只显示上线内容
+    5a625b56895c263392a481a0d957a74b1c175669 (HEAD -> dev) git code dev branch
+    c5d168ca8adce6923dab1ef39a5d4082ce104294 add branch code.txt dev
+    e715461334e1018c362a2e1a8066ce35f7cf6430 fisrt five
+    ad1ca0cebcdd28c95e0e2feecc06e222bf330dd1 four commit
+    609a4323ebdf3b1fc47d4c72803a396c0cc595d0 first commit
+    
+    
+    =================git分支——分支管理策略============================
+    快速合并 fast forward模式，但有些快速合并并不能成而且没有冲突的，这个时候合并之后做一次新的提交
+    但这种模式，删除分支后，会丢掉分支信息
+    
+    1.创建切换到dev分支下
+    git checkout -b dev
+    2.新建一个code4.txt，并增加新的一行code3.txt 并提交记录
+    3.切换回master分支，编辑code.txt提交
+    这个时候，不会冲突，但是，不能快速提交
+    
+    git merge --no-ff -m '禁用fastforward' dev  // 禁止快速合并模式， 
+    
+    Bug分支
+    每个Bug新建一个临时的分支，然后，删掉
+    git stash 可以把你的工作现场保存起来，以后恢复工作 完成一系列工作用户
+    git stash list
+    git stash pop 回复现场
+    
+    
