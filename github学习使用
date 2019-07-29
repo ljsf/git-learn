@@ -56,6 +56,12 @@ git clone ..git
   Master：用户保存发布的项目代码 v1.0, v2.0
   Dev: 保存开发过程中的代码
   
+上传代码  
+1.git init  #加入git
+2.git add REAME.me  #加入git中
+3.git commit -m "first commit" #提交到git中
+4.git remote add origin https://github.com/.....git # 上传代码到github中
+5.git push -u origin master
   
   
  
