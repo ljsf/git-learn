@@ -1,0 +1,81 @@
+git是分布式代码控制器
+
+git安装与配置:
+  Windows直接下载安装
+  sudo apt-get install git   //linux
+  sudo brew install git //mac
+
+========使用命令==========
+git init // 出现化仓库
+
+git add code.txt  // 
+git commit -m '注释' // 提交 注释最好用项目的版本号
+git log // 查看提交 会出现commit一系列的东西，那个东西就是序列号
+
+修改以后
+git add code.txt // git add是命令将需要的快照内容写入暂存冲区（staged） 你可以加入很多玩家放入缓存区，然后一次提交
+git commit -m  // 提交 git commit命令则将缓冲区内容加入仓库中(master)
+
+===================================工作区，暂存区=====================================
+git的原理：加入git 记录了一个点，相对于上一个版本修改了什么，其他是没有变化的，是一条线出去的
+工作区：working directoring 工作区就是代码存放的地方
+版本库：Repository  .git是一个版本库，并不是工作区 版本库包括，暂存区和创建版本记录
+
+在创建版本记录(git commit)之前可以，多次git add到版本暂存区里面
+
+git status 可以查看，git的状态
+  modified：是修改了
+  untracked files 是指没有跟踪
+  branch master：分布式控制
+  staged：阶段
+  changes not staged for commit: 改变尚未提交阶段
+  discard：取消
+  changes to be committed：要提交的变更
+  
+ 
+现在想回到上一个版本：
+  git reset --hard HEAD^   // HEAD是一个指针，是指向最新的一个版本 HEAD^表示HEAD的前一个版本 HEAD的前两个版本是HEAD^^ or with HEAD~1 HEAD前一个版本
+  git rest --hard HEAD^ 这个就回到第一个版本
+  但是这个时候，git没有把你的版本二给删除掉，只是把指针HEAD指向了，HEAD^而已 他是按照线，从低版本到高版本，线开始，走的，感觉是安装，分开了的
+  git reset --hard  // 直接跟上commit那个序列号，也就是版本编号，就好，你不需要全部，复制，使用，前几个就行了 
+  for example:
+    $ git log
+      commit d9c3693bca4761e72d14bece200417f9fd3ccbb4 (HEAD -> master)
+     git reset --hard d9c
+  
+  git reflog: 可以查看直接操作的记录，前面出现的数字 就是版本号 记住git里面所有的内容，最新的在上面
+  
+  
+  撤销修改： 
+    git checkout -- filename
+  撤销暂存区：
+    git reset HEAD filename
+   对比文件的不同：
+    1.对比工作区和版本库里面的文件对比  git diff  HEAD -- code.txt
+      $ git diff HEAD -- code.txt
+      diff --git a/code.txt b/code.txt
+      index 5797859..e0926ca 100644
+      --- a/code.txt    // --- 对应的是 HEAD版本的 code.txt
+      +++ b/code.txt    // +++ 工作区的版本 code.txt
+      @@ -1,3 +1,5 @@
+       hello git first write code
+       hello git three code
+       this is the five line
+      +
+      +the line  // 工作区的文件比HEAD区文件多了一行
+
+    2.对比HEAD和HEAD^中code.txt的不同： git diff HEAD HEAD^ -- code.txt
+      $ git diff HEAD HEAD^ -- code.txt
+      diff --git a/code.txt b/code.txt
+      index 5797859..b749824 100644
+      --- a/code.txt    // 代表的是第一个
+      +++ b/code.txt    // 代表的是第二个
+      @@ -1,3 +1,2 @@
+       hello git first write code
+       hello git three code
+      -this is the five line // 以第一个为基准，比第二多了就加，比第二个少了就减 -- 文件跟的是文件名
+    
+  
+  
+  
+  
