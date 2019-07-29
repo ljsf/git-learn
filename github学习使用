@@ -21,5 +21,41 @@ vi .gitconfig
   里面会有 id_rsa 就是私钥，自己保存 
   id_rsa.pub 公钥，复制到key 可以起个名字
   
+生成密匙：
+ssh-keygen -t rsa -C "邮箱地址" 会放在~/.ssh/id_rsa下
+就会有id_rsa 和 id_rsa_pub 私钥和公钥
+
+注：只能用账号必须要用登录github的邮箱才行，其他一概不行用户名也要用github用户名才行  使用公匙啊，记住
+
+clone项目：  如果出错就使用这个命令 eval "$(ssh-agent -s)"  ssh-dd
+git clone ..git
+
+上传代码：
+  开发的时候，创建一分支
+  git checkout -b ljsf
+  git branch
+  代码推送 origin 代表的是远程的分支
+  git push origin 分支名称
   
-    
+ 本地的分支跟踪远程的分支
+ git status
+ git branch --set-upstream-to=origin/ljsf ljsf
+ 
+ 从远程分支上拉取代码
+ git pull origin ljsf 
+ 
+ 项目经理：
+  项目搭建框架
+  搭建项目框架之后，把框架放到服务器
+  
+ 普通员工：
+  生产ssh公钥，然后交给项目经理，然后项目经理加入账号里面
+  创建本地分支dev，进行开发
+  每一个员工开发自己的代码之后，发布到远程的dev分支上
+  
+  Master：用户保存发布的项目代码 v1.0, v2.0
+  Dev: 保存开发过程中的代码
+  
+  
+  
+ 
