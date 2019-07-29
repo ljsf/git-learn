@@ -1,0 +1,14 @@
+查看配置：
+git config user.name
+git config user.email
+
+修改用户名和邮箱地址
+git config --global user.name "username"    // 
+git config --global user.email "email"
+
+配置局部用户名和邮箱地址：
+git config user.name username   // git config user.name ljsf
+git config user.email email
+
+在.git中的config中里面有也可以这样
+
