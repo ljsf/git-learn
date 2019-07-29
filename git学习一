@@ -75,7 +75,25 @@ git status 可以查看，git的状态
        hello git three code
       -this is the five line // 以第一个为基准，比第二多了就加，比第二个少了就减 -- 文件跟的是文件名
     
-  
+  删除文件： rm -rf code2.txt
+    >git status
+    git add code2.txt 也可以使用git rm
+    git commit code2.txt
+    git reset --hard HEAD^  // 来复原版本号
+    
+    如果git里面没有跟踪，删除了，git就恢复不了
+    ================分支=================================
+    git把我们每次的提交提交的版本记录仪串一条时间线，这个就是主分支 master
+    HEAD严格来说是先指向分支（master） 然后再指向分支里面的版本号
+    
+    git创建一个分支很快，就是增加一个dev指针，改变HEAD的指向，工作区的文件，没有任何变化
+    到了dev分支之后，新提交一次后，dev指针往指针往前移动一步，而master指针不变
+    
+    dev工作完成了，可以把dev合并到master上，合并完了，可以删除分支
+    
+    git branch：可以查看分支
+    
+    
   
   
   
