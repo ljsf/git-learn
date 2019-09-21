@@ -16,7 +16,7 @@ vi .gitconfig
     
    Author 就是这里设置的
   
-  ssh-keygen -t rea -C 'smartli@163.com'
+  ssh-keygen -t rsa -C 'smartli@163.com'
   next next
   里面会有 id_rsa 就是私钥，自己保存 
   id_rsa.pub 公钥，复制到key 可以起个名字
